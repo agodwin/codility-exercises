@@ -120,7 +120,8 @@ def solution(a)
 end
 
 
-# TEST: unique in the middle of elements => array = [9, 3, 9, 3, 9, 7, 9];
+# TEST: unique in the middle of elements =>
+array = [9, 3, 9, 3, 9, 7, 9];
 # TEST: unique in the middle of elements => array = [2, 4, 1, 7, 2, 7, 4, 1, 11, 14, 92, 14, 92, 11, 9, 32, 106, 9, 106, 32, 12];
 # TEST: unique at beginning => array = [5, 12, 3, 12, 15, 6, 17, 5, 17, 15, 6];
 # TEST: unique at end => array = [11, 22, 76, 32, 114, 32, 76, 22, 11];
