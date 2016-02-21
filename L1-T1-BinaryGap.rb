@@ -9,7 +9,12 @@
 # verify input is a positive integer
 user_input = ARGV[0].to_i(); # to_i() will truncate any floating point number
 #puts user_input;
-exit(-1) if (user_input <= 0)
+
+#exit(-1) if (user_input <= 0)
+if (user_input <= 0) then
+    puts "usage: #{__FILE__} <integer>"
+    exit -1
+end
 
 # convert integer to a string of 1 and 0
 binary = user_input.to_s(2);
