@@ -76,6 +76,12 @@ Elements of input arrays can be modified.
 Copyright 2009–2016 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 =end
 
+
+# a way to toggle logging
+def log(msg, flag = false)
+    puts msg if flag
+end
+
 class Counters
     def initialize(n)
         # create an array of size N, set all array values to 0
@@ -90,22 +96,49 @@ class Counters
        #   x is in the range 1 <= x <= array size
        #   so we must adjust it for our zero based array.       
 
-       #puts "increment counter at #{x}"
+       log("increment counter at #{x}")
        @array[x-1] += 1
        @biggest = @array[x-1] if @array[x-1] > @biggest
-       #puts "biggest value of any counter is #{@biggest}"
+       log("biggest value of any counter is #{@biggest}")
     end
     
     def set_all_counters_to_biggest
-        #puts "set all counters to biggest"
+        log("set all counters to biggest")
         @array.each_index do | i|
             @array[i] = @biggest
         end
     end
     
-    def dump
-        puts @array.inspect
+    def to_a
+        @array.inspect
     end        
+end
+
+
+def solutions(number_of_counters, operations_array)
+    counters = Counters.new(number_of_counters)
+    
+    operations_array.each_with_index do | x, i |
+       
+       # if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
+       # if A[K] = N + 1 then operation K is max counter.    
+       log("When K is #{i} then A[K] = is #{x}")
+
+       if (1 <= x) && (x <= number_of_counters) then
+          counters.incriment_counter_at(x)
+            
+       elsif x == number_of_counters + 1
+          counters.set_all_counters_to_biggest()
+            
+       else
+          log("OOPS - operations array has a value out of bounds", true)
+          log("       no change made to any counters", true)
+       end
+
+       log("counters are #{counters.to_a()}\n\n")
+    end
+    
+    counters.to_a
 end
 
 
@@ -115,28 +148,9 @@ operations = [3,4,4,6,1,4,4,]
 #operations = [3, 4, 2, 6, 1, 2, 4, 15, 2, 3, 2, 4, 7, 3, 1, 5, 8, 2, 4, 1,]
 
 
-puts "operations are #{operations.inspect}"
-puts "number of counters is #{number_of_counters}"
+log("number of counters is #{number_of_counters}", true)
+log("operations are #{operations.inspect}\n\n", true)
 
-counters = Counters.new(number_of_counters)
-#counters.dump()
 
-operations.each_with_index do | x, i |
+log(solutions(number_of_counters, operations), true)
 
-   # if A[K] = X, such that 1 ≤ X ≤ N, then operation K is increase(X),
-   # if A[K] = N + 1 then operation K is max counter.    
-   #puts "When K is #{i} then A[K] = is #{x}"
-
-   if (1 <= x) && (x <= number_of_counters) then
-      counters.incriment_counter_at(x)
-        
-   elsif x == number_of_counters + 1
-      counters.set_all_counters_to_biggest()
-        
-   else
-      puts "OOPS - operations array has a value out of bounds"
-      puts "       no change made to any counters"
-   end
-end
-
-counters.dump
