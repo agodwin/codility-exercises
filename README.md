@@ -23,6 +23,14 @@ working on the exercises available at codility.com
 
 #### Lesson 4 - Counting Elements
 ***
+ *  Task 1 - [PermCheck](https://codility.com/programmers/task/perm_check/)
+
+    Check whether array A is a permutation. 
+
+    Level - Painless
+
+    [L4-T1-PermCheck.rb](https://github.com/agodwin/codility-exercises/blob/master/L4-T1-PermCheck.rb)
+
  *  Task 4 - [MaxCounters](https://codility.com/programmers/task/max_counters/)
 
     Calculate the values of counters after applying all 
@@ -32,4 +40,4 @@ working on the exercises available at codility.com
     Level - Respectable
 
     [L4-T4-MaxCounters.rb](https://github.com/agodwin/codility-exercises/blob/master/L4-T4-MaxCounters.rb)
-
+    
