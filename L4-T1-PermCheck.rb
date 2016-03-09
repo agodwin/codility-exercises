@@ -29,7 +29,8 @@ Write a function:
 
     def solution(a)
 
-that, given a zero-indexed array A, returns 1 if array A is a permutation and 0 if it is not.
+that, given a zero-indexed array A, returns 1 if array A is 
+a permutation and 0 if it is not.
 
 For example, given array A such that:
     A[0] = 4
@@ -47,11 +48,18 @@ Given array A such that:
 the function should return 0.
 
 Assume that:
-        N is an integer within the range [1..100,000]
-        each element of array A is an integer within the range [1..1,000,000,000].
+   N is an integer within the range [1..100,000]
+   each element of array A is an integer within the range [1..1,000,000,000].
 
-        #### OOPS ####
-        The "each element" statement doesn't make any sense???
+   #### OOPS ####
+   The "each element" statement doesn't make any sense???
+   Unless we have an array containing a slice of the range 1..1,000,000,000. 
+   For example, the array  [500, 502, 504, 501, 503] is a permutation. Is that
+   right?
+   
+   #### BUT ####
+   The description says "a sequence containing each element from 1 to N" so 
+   that means we can't have a slice? 
         
 Complexity:
         expected worst-case time complexity is O(N)
