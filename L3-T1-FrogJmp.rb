@@ -64,7 +64,7 @@ end
 
 
 x=10
-y=230
+y=85
 d=30
 
 puts "The hops count is #{solution(x, y, d)}"
